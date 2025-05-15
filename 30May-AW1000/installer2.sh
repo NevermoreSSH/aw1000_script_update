@@ -12,5 +12,6 @@ uci commit cpufreq;
 rm -r /usr/bin/xray && cd /tmp && curl -L https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/Xray-linux-arm64-v8a-v25.3.31.zip > Xray-linux-arm64-v8a-v25.3.31.zip && unzip *.zip && mv xray /usr/bin && chmod +x /usr/bin/xray && rm *.zip *.dat LICENSE README.md && xray version;
 wget -q -O /etc/config/alpha "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/alpha";
 wget -q -O /etc/config/tailscale "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/tailscale";
+wget -q -O /etc/config/passwall2 "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/passwall2";
 wget -q -O /etc/rc.local "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/rc.local";
 cd;rm -r installer2.sh;sleep 5;reboot
