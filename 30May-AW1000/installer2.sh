@@ -1,119 +1,16 @@
 #!/bin/sh
 # update.sh - for firmware 30May-immortalwrt-qualcommax-ipq807x-arcadyan_aw1000-squashfs-sysupgrade.bin
-sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='ImmortalWrt 23.05.2-SNAPSHOT Tweak v4.0 by NevermoreSSH'/g" /etc/openwrt_release;
-
-# Add custom OPKG feed and install packages
+sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='ImmortalWrt 23.05.2-SNAPSHOT v4.0 by NevermoreSSH'/g" /etc/openwrt_release;
 echo "src/gz custom_packages https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23" >> /etc/opkg/customfeeds.conf;
 opkg update;opkg install luci-app-modeminfo luci-app-sqm luci-app-tailscale luci-app-passwall2 luci-theme-alpha luci-app-alpha-config;
-
-# Add cron job to release RAM every 6 hours
 echo "# Release RAM Every 6 hours" >> /etc/crontabs/root;
 echo "0 */6 * * * sync && echo 3 > /proc/sys/vm/drop_caches" >> /etc/crontabs/root;
-
-# Set CPU governor to 'schedutil'
 uci set cpufreq.cpufreq.governor0='schedutil';
 uci set cpufreq.global.set='1';
 uci commit cpufreq;
-
 # Update Xray binary
 rm -r /usr/bin/xray && cd /tmp && curl -L https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/Xray-linux-arm64-v8a-v25.3.31.zip > Xray-linux-arm64-v8a-v25.3.31.zip && unzip *.zip && mv xray /usr/bin && chmod +x /usr/bin/xray && rm *.zip *.dat LICENSE README.md && xray version;
-
-# Configure Alpha UI
-cat <<'EOF' > /etc/config/alpha
-
-config theme 'theme'
-	option color '#2222359a'
-	option blur '00'
-	option navbar '1'
-
-config navbar
-	option name 'Overview'
-	option enable 'Enable'
-	option line '1'
-	option newtab 'No'
-	option icon '/www/luci-static/alpha/gaya/icon/navbar/overview.png'
-	option address '/cgi-bin/luci/admin/status/overview'
-
-config navbar
-	option name 'Terminal'
-	option enable 'Enable'
-	option line '2'
-	option newtab 'No'
-	option icon '/www/luci-static/alpha/gaya/icon/navbar/terminal.png'
-	option address '/cgi-bin/luci/admin/system/ttyd'
-
-config navbar
-	option name 'Open Clash'
-	option enable 'Enable'
-	option line '3'
-	option newtab 'No'
-	option icon '/www/luci-static/alpha/gaya/icon/navbar/openclash.png'
-	option address '/cgi-bin/luci/admin/services/passwall'
-
-config navbar
-	option name 'Neko'
-	option enable 'Disable'
-	option line '4'
-	option newtab 'No'
-	option icon '/www/luci-static/alpha/gaya/icon/navbar/neko.png'
-	option address '/cgi-bin/luci/admin/services/neko'
-
-config navbar
-	option name 'Modem'
-	option enable 'Enable'
-	option line '5'
-	option newtab 'No'
-	option icon '/www/luci-static/alpha/gaya/icon/navbar/modem.png'
-	option address '/cgi-bin/luci/admin/network/network'
-
-config navbar
-	option name 'Network'
-	option enable 'Enable'
-	option line '6'
-	option newtab 'No'
-	option icon '/www/luci-static/alpha/gaya/icon/navbar/network.png'
-	option address '/cgi-bin/luci/admin/services/adblock'
-
-EOF
-
-# Set up rc.local for auto restart on boot
-cat <<'EOF' > /etc/rc.local
-# Put your custom commands here that should be executed once
-# the system init finished. By default this file does nothing.
-
-# Restart Passwall when reboot/turn on
-/etc/init.d/passwall restart
-/etc/init.d/passwall2 restart
-
-# Reload adblock after 1min+ power on
-sleep 90 && /etc/init.d/adblock reload
-
-exit 0
-
-EOF
-
-
-# Configure Tailscale
-cat <<'EOF' >>/etc/config/tailscale
-
-config tailscale 'settings'
-	option enabled '0'
-	option port '41641'
-	option config_path '/etc/tailscale'
-	option fw_mode 'iptables'
-	option log_stdout '1'
-	option log_stderr '1'
-	option acceptRoutes '1'
-	option acceptDNS '1'
-	option advertiseExitNode '1'
-	list advertiseRoutes '192.168.1.0/24'
-	option s2s '1'
-	list access 'tsfwlan'
-	list access 'tsfwwan'
-	list access 'lanfwts'
-	list access 'wanfwts'
-
-
-EOF
-
-cd;rm -r installer2.sh
+wget -q -O /etc/config/alpha "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/alpha";
+wget -q -O /etc/config/tailscale "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/tailscale";
+wget -q -O /etc/rc.local "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/rc.local";
+cd;rm -r installer2.sh;sleep 5;reboot
