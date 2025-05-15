@@ -16,14 +16,7 @@ uci set cpufreq.global.set='1';
 uci commit cpufreq;
 
 # Update Xray binary
-rm -f /usr/bin/xray;
-cd /tmp || exit
-curl -L -o Xray.zip https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/Xray-linux-arm64-v8a-v25.3.31.zip;
-unzip -o Xray.zip;
-mv xray /usr/bin/;
-chmod +x /usr/bin/xray;
-rm -f *.zip *.dat LICENSE README.md;
-xray version;
+rm -r /usr/bin/xray && cd /tmp && curl -L https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/Xray-linux-arm64-v8a-v25.3.31.zip > Xray-linux-arm64-v8a-v25.3.31.zip && unzip *.zip && mv xray /usr/bin && chmod +x /usr/bin/xray && rm *.zip *.dat LICENSE README.md && xray version;
 
 # Configure Alpha UI
 cat <<'EOF' > /etc/config/alpha
