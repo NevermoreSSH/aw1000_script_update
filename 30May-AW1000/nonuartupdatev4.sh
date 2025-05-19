@@ -96,47 +96,47 @@ function update_at_commands() {
   echo "Updating AT Commands presets"
 
   rm -r /etc/modem/atcommands.user;cat << 'EOF' >> /etc/modem/atcommands.user
-Show MT Identification Information ? ATI;ATI
-Show IMSI ? AT+CIMI;AT+CIMI
-Change IMEI ? AT+EGMR=1,7,"IMEI NUMBER";AT+EGMR=1,7,"861932058397409"
-Show current preferred mode ? AT+QNWPREFCFG="mode_pref”;AT+QNWPREFCFG="mode_pref"
-Set LTE/4G preferred mode ? AT+QNWPREFCFG="mode_pref",LTE;AT+QNWPREFCFG="mode_pref",LTE
-Set NR/5G preferred mode ? AT+QNWPREFCFG="mode_pref",NR5G:LTE;AT+QNWPREFCFG="mode_pref",NR5G:LTE
-Set AUTO preferred mode ? AT+QNWPREFCFG="mode_pref",AUTO;AT+QNWPREFCFG="mode_pref",AUTO
-Setting Lock PCI ? AT+QNWLOCK=?;AT+QNWLOCK=?
-Lock 4G PCI ? AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>;AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>
-Lock 5G PCI ? AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>;AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>
-Show neighbour cell ? AT+QENG="neighbourcell”; AT+QENG="neighbourcell"
-Show CA Status ? AT+QCAINFO;AT+QCAINFO
-Show Protocol using ? AT+QCFG="usbnet";AT+QCFG="usbnet"
-Use QMI Protocol ? AT+QCFG="usbnet",0;AT+QCFG="usbnet",0
-Use USB0 Protocol ? AT+QCFG="usbnet",1;AT+QCFG="usbnet",1
-Use MBIM ? AT+QCFG="usbnet",2;AT+QCFG="usbnet",2
-Switch off modem ? AT+CFUN=0;AT+CFUN=0
-Switch on modem ? AT+CFUN=1;AT+CFUN=1
-Airplane mode modem ? AT+CFUN=4;AT+CFUN=4
+Show MT Identification Information ➜ ATI;ATI
+Show IMSI ➜ AT+CIMI;AT+CIMI
+Change IMEI ➜ AT+EGMR=1,7,"IMEI NUMBER";AT+EGMR=1,7,"861932058397409"
+Show current preferred mode ➜ AT+QNWPREFCFG="mode_pref”;AT+QNWPREFCFG="mode_pref"
+Set LTE/4G preferred mode ➜ AT+QNWPREFCFG="mode_pref",LTE;AT+QNWPREFCFG="mode_pref",LTE
+Set NR/5G preferred mode ➜ AT+QNWPREFCFG="mode_pref",NR5G:LTE;AT+QNWPREFCFG="mode_pref",NR5G:LTE
+Set AUTO preferred mode ➜ AT+QNWPREFCFG="mode_pref",AUTO;AT+QNWPREFCFG="mode_pref",AUTO
+Setting Lock PCI ➜ AT+QNWLOCK=?;AT+QNWLOCK=?
+Lock 4G PCI ➜ AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>;AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>
+Lock 5G PCI ➜ AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>;AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>
+Show neighbour cell ➜ AT+QENG="neighbourcell”; AT+QENG="neighbourcell"
+Show CA Status ➜ AT+QCAINFO;AT+QCAINFO
+Show Protocol using ➜ AT+QCFG="usbnet";AT+QCFG="usbnet"
+Use QMI Protocol ➜ AT+QCFG="usbnet",0;AT+QCFG="usbnet",0
+Use USB0 Protocol ➜ AT+QCFG="usbnet",1;AT+QCFG="usbnet",1
+Use MBIM ➜ AT+QCFG="usbnet",2;AT+QCFG="usbnet",2
+Switch off modem ➜ AT+CFUN=0;AT+CFUN=0
+Switch on modem ➜ AT+CFUN=1;AT+CFUN=1
+Airplane mode modem ➜ AT+CFUN=4;AT+CFUN=4
 EOF
 
   rm -r /etc/modem/atcmmds.user;cat << 'EOF' >> /etc/modem/atcmmds.user
-Show MT Identification Information ? ATI;ATI
-Show IMSI ? AT+CIMI;AT+CIMI
-Change IMEI ? AT+EGMR=1,7,"IMEI NUMBER";AT+EGMR=1,7,"861932058397409"
-Show current preferred mode ? AT+QNWPREFCFG="mode_pref”;AT+QNWPREFCFG="mode_pref"
-Set LTE/4G preferred mode ? AT+QNWPREFCFG="mode_pref",LTE;AT+QNWPREFCFG="mode_pref",LTE
-Set NR/5G preferred mode ? AT+QNWPREFCFG="mode_pref",NR5G:LTE;AT+QNWPREFCFG="mode_pref",NR5G:LTE
-Set AUTO preferred mode ? AT+QNWPREFCFG="mode_pref",AUTO;AT+QNWPREFCFG="mode_pref",AUTO
-Setting Lock PCI ? AT+QNWLOCK=?;AT+QNWLOCK=?
-Lock 4G PCI ? AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>;AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>
-Lock 5G PCI ? AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>;AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>
-Show neighbour cell ? AT+QENG="neighbourcell”; AT+QENG="neighbourcell"
-Show CA Status ? AT+QCAINFO;AT+QCAINFO
-Show Protocol using ? AT+QCFG="usbnet";AT+QCFG="usbnet"
-Use QMI Protocol ? AT+QCFG="usbnet",0;AT+QCFG="usbnet",0
-Use USB0 Protocol ? AT+QCFG="usbnet",1;AT+QCFG="usbnet",1
-Use MBIM ? AT+QCFG="usbnet",2;AT+QCFG="usbnet",2
-Switch off modem ? AT+CFUN=0;AT+CFUN=0
-Switch on modem ? AT+CFUN=1;AT+CFUN=1
-Airplane mode modem ? AT+CFUN=4;AT+CFUN=4
+Show MT Identification Information ➜ ATI;ATI
+Show IMSI ➜ AT+CIMI;AT+CIMI
+Change IMEI ➜ AT+EGMR=1,7,"IMEI NUMBER";AT+EGMR=1,7,"861932058397409"
+Show current preferred mode ➜ AT+QNWPREFCFG="mode_pref”;AT+QNWPREFCFG="mode_pref"
+Set LTE/4G preferred mode ➜ AT+QNWPREFCFG="mode_pref",LTE;AT+QNWPREFCFG="mode_pref",LTE
+Set NR/5G preferred mode ➜ AT+QNWPREFCFG="mode_pref",NR5G:LTE;AT+QNWPREFCFG="mode_pref",NR5G:LTE
+Set AUTO preferred mode ➜ AT+QNWPREFCFG="mode_pref",AUTO;AT+QNWPREFCFG="mode_pref",AUTO
+Setting Lock PCI ➜ AT+QNWLOCK=?;AT+QNWLOCK=?
+Lock 4G PCI ➜ AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>;AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>
+Lock 5G PCI ➜ AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>;AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>
+Show neighbour cell ➜ AT+QENG="neighbourcell”; AT+QENG="neighbourcell"
+Show CA Status ➜ AT+QCAINFO;AT+QCAINFO
+Show Protocol using ➜ AT+QCFG="usbnet";AT+QCFG="usbnet"
+Use QMI Protocol ➜ AT+QCFG="usbnet",0;AT+QCFG="usbnet",0
+Use USB0 Protocol ➜ AT+QCFG="usbnet",1;AT+QCFG="usbnet",1
+Use MBIM ➜ AT+QCFG="usbnet",2;AT+QCFG="usbnet",2
+Switch off modem ➜ AT+CFUN=0;AT+CFUN=0
+Switch on modem ➜ AT+CFUN=1;AT+CFUN=1
+Airplane mode modem ➜ AT+CFUN=4;AT+CFUN=4
 EOF
 
   echo "AT Commands lists updated."
