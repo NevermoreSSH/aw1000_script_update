@@ -95,7 +95,7 @@ function setup_cron_restart_wg() {
 function update_at_commands() {
   echo "Updating AT Commands presets"
 
-  rm -r /etc/modem/atcommands.user  && cat << 'EOF' >> /etc/modem/atcommands.user
+  rm -r /etc/modem/atcommands.user;cat << 'EOF' >> /etc/modem/atcommands.user
 Show MT Identification Information ? ATI;ATI
 Show IMSI ? AT+CIMI;AT+CIMI
 Change IMEI ? AT+EGMR=1,7,"IMEI NUMBER";AT+EGMR=1,7,"861932058397409"
@@ -117,7 +117,7 @@ Switch on modem ? AT+CFUN=1;AT+CFUN=1
 Airplane mode modem ? AT+CFUN=4;AT+CFUN=4
 EOF
 
-  rm -r /etc/modem/atcmmds.user && cat << 'EOF' >> /etc/modem/atcmmds.user
+  rm -r /etc/modem/atcmmds.user;cat << 'EOF' >> /etc/modem/atcmmds.user
 Show MT Identification Information ? ATI;ATI
 Show IMSI ? AT+CIMI;AT+CIMI
 Change IMEI ? AT+EGMR=1,7,"IMEI NUMBER";AT+EGMR=1,7,"861932058397409"
