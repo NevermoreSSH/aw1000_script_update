@@ -95,18 +95,18 @@ function setup_cron_restart_wg() {
 function update_at_commands() {
   echo "Updating AT Commands presets"
 
-  cat << 'EOF' >> /etc/modem/atcommands.user
+  rm -r /etc/modem/atcommands.user;cat << 'EOF' >> /etc/modem/atcommands.user
 Show MT Identification Information ? ATI;ATI
 Show IMSI ? AT+CIMI;AT+CIMI
 Change IMEI ? AT+EGMR=1,7,"IMEI NUMBER";AT+EGMR=1,7,"861932058397409"
-Show current preferred mode ? AT+QNWPREFCFG="mode_prefî;AT+QNWPREFCFG="mode_pref"
+Show current preferred mode ? AT+QNWPREFCFG="mode_pref‚Äù;AT+QNWPREFCFG="mode_pref"
 Set LTE/4G preferred mode ? AT+QNWPREFCFG="mode_pref",LTE;AT+QNWPREFCFG="mode_pref",LTE
 Set NR/5G preferred mode ? AT+QNWPREFCFG="mode_pref",NR5G:LTE;AT+QNWPREFCFG="mode_pref",NR5G:LTE
 Set AUTO preferred mode ? AT+QNWPREFCFG="mode_pref",AUTO;AT+QNWPREFCFG="mode_pref",AUTO
 Setting Lock PCI ? AT+QNWLOCK=?;AT+QNWLOCK=?
 Lock 4G PCI ? AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>;AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>
 Lock 5G PCI ? AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>;AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>
-Show neighbour cell ? AT+QENG="neighbourcellî; AT+QENG="neighbourcell"
+Show neighbour cell ? AT+QENG="neighbourcell‚Äù; AT+QENG="neighbourcell"
 Show CA Status ? AT+QCAINFO;AT+QCAINFO
 Show Protocol using ? AT+QCFG="usbnet";AT+QCFG="usbnet"
 Use QMI Protocol ? AT+QCFG="usbnet",0;AT+QCFG="usbnet",0
@@ -117,18 +117,18 @@ Switch on modem ? AT+CFUN=1;AT+CFUN=1
 Airplane mode modem ? AT+CFUN=4;AT+CFUN=4
 EOF
 
-  cat << 'EOF' >> /etc/modem/atcmmds.user
+  rm -r /etc/modem/atcmmds.user;cat << 'EOF' >> /etc/modem/atcmmds.user
 Show MT Identification Information ? ATI;ATI
 Show IMSI ? AT+CIMI;AT+CIMI
 Change IMEI ? AT+EGMR=1,7,"IMEI NUMBER";AT+EGMR=1,7,"861932058397409"
-Show current preferred mode ? AT+QNWPREFCFG="mode_prefî;AT+QNWPREFCFG="mode_pref"
+Show current preferred mode ? AT+QNWPREFCFG="mode_pref‚Äù;AT+QNWPREFCFG="mode_pref"
 Set LTE/4G preferred mode ? AT+QNWPREFCFG="mode_pref",LTE;AT+QNWPREFCFG="mode_pref",LTE
 Set NR/5G preferred mode ? AT+QNWPREFCFG="mode_pref",NR5G:LTE;AT+QNWPREFCFG="mode_pref",NR5G:LTE
 Set AUTO preferred mode ? AT+QNWPREFCFG="mode_pref",AUTO;AT+QNWPREFCFG="mode_pref",AUTO
 Setting Lock PCI ? AT+QNWLOCK=?;AT+QNWLOCK=?
 Lock 4G PCI ? AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>;AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>
 Lock 5G PCI ? AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>;AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>
-Show neighbour cell ? AT+QENG="neighbourcellî; AT+QENG="neighbourcell"
+Show neighbour cell ? AT+QENG="neighbourcell‚Äù; AT+QENG="neighbourcell"
 Show CA Status ? AT+QCAINFO;AT+QCAINFO
 Show Protocol using ? AT+QCFG="usbnet";AT+QCFG="usbnet"
 Use QMI Protocol ? AT+QCFG="usbnet",0;AT+QCFG="usbnet",0
