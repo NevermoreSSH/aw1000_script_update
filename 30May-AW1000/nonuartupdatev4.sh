@@ -128,7 +128,6 @@ Switch off modem ;AT+CFUN=0
 Switch on modem ;AT+CFUN=1
 Airplane mode modem ;AT+CFUN=4
 EOF
-EOF
 
   rm -r /etc/modem/atcmmds.user;cat << 'EOF' >> /etc/modem/atcmmds.user
 Show Attention Identify ;ATI
@@ -162,7 +161,6 @@ Use MBIM (2) ;AT+QCFG="usbnet",2
 Switch off modem ;AT+CFUN=0
 Switch on modem ;AT+CFUN=1
 Airplane mode modem ;AT+CFUN=4
-EOF
 EOF
 
   echo "AT Commands lists updated."
