@@ -96,44 +96,68 @@ function update_at_commands() {
   echo "Updating AT Commands presets"
 
   rm -r /etc/modem/atcommands.user;cat << 'EOF' >> /etc/modem/atcommands.user
-Show MT Identification Information ;ATI
+Show Attention Identify ;ATI
 Show IMSI ;AT+CIMI
 Change IMEI ;AT+EGMR=1,7,"IMEI NUMBER"
+ ;
 Show current preferred mode ;AT+QNWPREFCFG="mode_pref"
 Set LTE/4G preferred mode ;AT+QNWPREFCFG="mode_pref",LTE
 Set NR/5G preferred mode ;AT+QNWPREFCFG="mode_pref",NR5G:LTE
 Set AUTO preferred mode ;AT+QNWPREFCFG="mode_pref",AUTO
-Setting Lock PCI ;AT+QNWLOCK=?
+ ;
+Show Commands Lock PCI ;AT+QNWLOCK=?
+====Temporary/Reset after Reboot==== ;
 Lock 4G PCI ;AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>
-Lock 5G PCI ;AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>
+Disable 4G PCI ;AT+QNWLOCK="common/4g",0
+====Temporary/Reset after Reboot==== ;
+Lock 5G/SA PCI ;AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>
+Disable 5G/SA PCI ;AT+QNWLOCK="common/5g",0
+====Permanently after Reboot==== ;
+Save PCI lock permanently ;AT+QNWLOCK="save_ctrl",1,1
+Reset PCI lock ;AT+QNWLOCK="save_ctrl",1,0
+ ;
 Show neighbour cell ;AT+QENG="neighbourcell"
 Show CA Status ;AT+QCAINFO
+ ;
 Show Protocol using ;AT+QCFG="usbnet"
-Use QMI Protocol ;AT+QCFG="usbnet",0
-Use USB0 Protocol ;AT+QCFG="usbnet",1
-Use MBIM ;AT+QCFG="usbnet",2
+Use QMI Protocol (0) ;AT+QCFG="usbnet",0
+Use USB0 Protocol (1) ;AT+QCFG="usbnet",1
+Use MBIM (2) ;AT+QCFG="usbnet",2
+ ;
 Switch off modem ;AT+CFUN=0
 Switch on modem ;AT+CFUN=1
 Airplane mode modem ;AT+CFUN=4
 EOF
 
   rm -r /etc/modem/atcmmds.user;cat << 'EOF' >> /etc/modem/atcmmds.user
-Show MT Identification Information ;ATI
+Show Attention Identify ;ATI
 Show IMSI ;AT+CIMI
 Change IMEI ;AT+EGMR=1,7,"IMEI NUMBER"
+ ;
 Show current preferred mode ;AT+QNWPREFCFG="mode_pref"
 Set LTE/4G preferred mode ;AT+QNWPREFCFG="mode_pref",LTE
 Set NR/5G preferred mode ;AT+QNWPREFCFG="mode_pref",NR5G:LTE
 Set AUTO preferred mode ;AT+QNWPREFCFG="mode_pref",AUTO
-Setting Lock PCI ;AT+QNWLOCK=?
+ ;
+Show Commands Lock PCI ;AT+QNWLOCK=?
+====Temporary/Reset after Reboot==== ;
 Lock 4G PCI ;AT+QNWLOCK="common/4g",(0-10),<freq>,<pci>
-Lock 5G PCI ;AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>
+Disable 4G PCI ;AT+QNWLOCK="common/4g",0
+====Temporary/Reset after Reboot==== ;
+Lock 5G/SA PCI ;AT+QNWLOCK="common/5g",<pci>,<earfcn>,<scs>,<band>
+Disable 5G/SA PCI ;AT+QNWLOCK="common/5g",0
+====Permanently after Reboot==== ;
+Save PCI lock permanently ;AT+QNWLOCK="save_ctrl",1,1
+Reset PCI lock ;AT+QNWLOCK="save_ctrl",1,0
+ ;
 Show neighbour cell ;AT+QENG="neighbourcell"
 Show CA Status ;AT+QCAINFO
+ ;
 Show Protocol using ;AT+QCFG="usbnet"
-Use QMI Protocol ;AT+QCFG="usbnet",0
-Use USB0 Protocol ;AT+QCFG="usbnet",1
-Use MBIM ;AT+QCFG="usbnet",2
+Use QMI Protocol (0) ;AT+QCFG="usbnet",0
+Use USB0 Protocol (1) ;AT+QCFG="usbnet",1
+Use MBIM (2) ;AT+QCFG="usbnet",2
+ ;
 Switch off modem ;AT+CFUN=0
 Switch on modem ;AT+CFUN=1
 Airplane mode modem ;AT+CFUN=4
