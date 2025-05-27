@@ -36,6 +36,21 @@ uci set firewall.@defaults[0].flow_offloading_hw='0'
 uci commit firewall
 }
 
+function new_repo() {
+rm -r /etc/opkg/distfeeds.conf;cat <<'EOF' >>/etc/opkg/distfeeds.conf
+## Remote package repositories
+src/gz immortalwrt_base https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/base
+src/gz immortalwrt_luci https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/luci
+src/gz immortalwrt_packages https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/packages
+src/gz immortalwrt_routing https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/routing
+src/gz immortalwrt_telephony https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/telephony
+src/gz immortalwrt_kmods2 https://github.com/NevermoreSSH/snapshot-package/releases/download/kmod-ipq807x-6.6.29-1-55a62e5583a43b5e864d5270379b266e
+
+EOF
+sleep 1
+  fi
+}
+
 function addcustom_feed() {
   local feed_url="https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23"
   if ! grep -q "$feed_url" /etc/opkg/customfeeds.conf; then
@@ -51,7 +66,7 @@ function install_packages() {
   curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/atinout_0.9.1_aarch64_cortex-a53.ipk
   curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/luci-app-atinout_0.1.0-r6_all.ipk
   opkg update
-  opkg install luci-app-modeminfo luci-app-sqm luci-app-tailscale luci-app-passwall2 luci-theme-alpha luci-app-alpha-config luci-app-adblock luci-app-openvpn openvpn-openssl luci-app-watchcat luci-app-vnstat luci-app-atinout atinout
+  opkg install luci-app-modeminfo luci-app-sqm luci-app-tailscale luci-app-passwall2 luci-theme-alpha luci-app-alpha-config luci-app-adblock luci-app-watchcat luci-app-vnstat luci-app-atinout atinout
 }
 
 function setup_crontab() {
@@ -142,17 +157,6 @@ Airplane mode modem ;AT+CFUN=4
 EOF
 sleep 1
 
-rm -r /etc/opkg/distfeeds.conf;cat <<'EOF' >>/etc/opkg/distfeeds.conf
-## Remote package repositories
-src/gz immortalwrt_base https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/base
-src/gz immortalwrt_luci https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/luci
-src/gz immortalwrt_packages https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/packages
-src/gz immortalwrt_routing https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/routing
-src/gz immortalwrt_telephony https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/telephony
-src/gz immortalwrt_kmods2 https://github.com/NevermoreSSH/snapshot-package/releases/download/kmod-ipq807x-6.6.29-1-55a62e5583a43b5e864d5270379b266e
-
-EOF
-sleep 1
   echo "AT Commands lists updated."
 }
 
@@ -176,6 +180,7 @@ function finish() {
 
 function main() {
   update_preset
+  new_repo
   addcustom_feed
   install_packages
   setup_crontab
