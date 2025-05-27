@@ -48,7 +48,6 @@ src/gz immortalwrt_kmods2 https://github.com/NevermoreSSH/snapshot-package/relea
 
 EOF
 sleep 1
-  fi
 }
 
 function addcustom_feed() {
