@@ -159,9 +159,7 @@ function finish() {
   uci delete watchcat.@watchcat[0];uci commit watchcat;
   uci set atinout.general.atc_port='/dev/ttyUSB2'
   uci -q commit atinout
-  uci set dhcp.lan.leasetime='168h'
-  uci commit dhcp
-  >/usr/share/passwall/rules/proxy_ip
+>/usr/share/passwall/rules/proxy_ip
 >/usr/share/passwall/rules/proxy_host
 >/usr/share/passwall/rules/domains_excluded
 >/usr/share/passwall/rules/direct_ip
@@ -175,9 +173,11 @@ function finish() {
 uci set firewall.@defaults[0].flow_offloading='0'
 uci set firewall.@defaults[0].flow_offloading_hw='0'
 uci commit firewall
-  sed -i "s/option udp_proxy_drop_ports '80,443'/option udp_proxy_drop_ports 'disable'/g" /etc/config/passwall
-  cd;rm -r *.ipk
-  echo "Reboot your device to apply all changes."
+sed -i "s/option udp_proxy_drop_ports '80,443'/option udp_proxy_drop_ports 'disable'/g" /etc/config/passwall
+cd;rm -r *.ipk
+uci set dhcp.lan.leasetime='168h'
+uci commit dhcp
+echo "Reboot your device to apply all changes."
 }
 
 function main() {
