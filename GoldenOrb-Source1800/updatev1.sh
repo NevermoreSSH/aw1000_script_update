@@ -174,6 +174,7 @@ function finish() {
   echo "Installation completed successfully!"
   mkdir -p /etc/vnstat/;sed -i 's|DatabaseDir "/var/lib/vnstat"|DatabaseDir "/etc/vnstat"|g' /etc/vnstat.conf;/etc/init.d/vnstat restart
   uci delete watchcat.@watchcat[0];uci commit watchcat;
+  sed -i "s/option udp_proxy_drop_ports '80,443'/option udp_proxy_drop_ports 'disable'/g" /etc/config/passwall
   cd;rm -r *.ipk
   echo "Reboot your device to apply all changes."
 }
