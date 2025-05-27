@@ -16,24 +16,7 @@ function update_preset() {
   uci set system.@system[0].timezone='MYT-8'
   uci set system.@system[0].zonename='Asia/Kuala Lumpur'
   uci commit system
-  uci set atinout.general.atc_port='/dev/ttyUSB2'
-  uci -q commit atinout
-  uci set dhcp.lan.leasetime='168h'
-  uci commit dhcp
-  >/usr/share/passwall/rules/proxy_ip
->/usr/share/passwall/rules/proxy_host
->/usr/share/passwall/rules/domains_excluded
->/usr/share/passwall/rules/direct_ip
->/usr/share/passwall/rules/direct_host
->/usr/share/passwall/rules/block_ip
->/usr/share/passwall/rules/block_host
->/usr/share/passwall/rules/gfwlist
->/usr/share/passwall/rules/chnroute6
->/usr/share/passwall/rules/chnroute
->/usr/share/passwall/rules/chnlist
-uci set firewall.@defaults[0].flow_offloading='0'
-uci set firewall.@defaults[0].flow_offloading_hw='0'
-uci commit firewall
+
 }
 
 function new_repo() {
@@ -65,7 +48,8 @@ function install_packages() {
   curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/atinout_0.9.1_aarch64_cortex-a53.ipk
   curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/luci-app-atinout_0.1.0-r6_all.ipk
   opkg update
-  opkg install luci-app-modeminfo luci-app-sqm luci-app-tailscale luci-app-passwall2 luci-theme-alpha luci-app-alpha-config luci-app-adblock luci-app-watchcat luci-app-vnstat luci-app-atinout atinout
+  opkg install luci-app-modeminfo luci-app-tailscale luci-app-passwall2 luci-theme-alpha luci-app-alpha-config luci-app-adblock luci-app-watchcat luci-app-vnstat
+  opkg install *.ipk
 }
 
 function setup_crontab() {
@@ -173,6 +157,24 @@ function finish() {
   echo "Installation completed successfully!"
   mkdir -p /etc/vnstat/;sed -i 's|DatabaseDir "/var/lib/vnstat"|DatabaseDir "/etc/vnstat"|g' /etc/vnstat.conf;/etc/init.d/vnstat restart
   uci delete watchcat.@watchcat[0];uci commit watchcat;
+  uci set atinout.general.atc_port='/dev/ttyUSB2'
+  uci -q commit atinout
+  uci set dhcp.lan.leasetime='168h'
+  uci commit dhcp
+  >/usr/share/passwall/rules/proxy_ip
+>/usr/share/passwall/rules/proxy_host
+>/usr/share/passwall/rules/domains_excluded
+>/usr/share/passwall/rules/direct_ip
+>/usr/share/passwall/rules/direct_host
+>/usr/share/passwall/rules/block_ip
+>/usr/share/passwall/rules/block_host
+>/usr/share/passwall/rules/gfwlist
+>/usr/share/passwall/rules/chnroute6
+>/usr/share/passwall/rules/chnroute
+>/usr/share/passwall/rules/chnlist
+uci set firewall.@defaults[0].flow_offloading='0'
+uci set firewall.@defaults[0].flow_offloading_hw='0'
+uci commit firewall
   sed -i "s/option udp_proxy_drop_ports '80,443'/option udp_proxy_drop_ports 'disable'/g" /etc/config/passwall
   cd;rm -r *.ipk
   echo "Reboot your device to apply all changes."
