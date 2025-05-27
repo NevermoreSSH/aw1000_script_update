@@ -120,8 +120,8 @@ function cron_restart_wg() {
   fi
 }
 
-function update_at_commands() {
-  echo "Updating AT Commands presets"
+function update_atcommands() {
+  echo "Updating AT Commands & others presets"
 
   rm -r /etc/atcommands.user;cat << 'EOF' >> /etc/atcommands.user
 Show Attention Identify ;ATI
@@ -142,6 +142,17 @@ Airplane mode modem ;AT+CFUN=4
 EOF
 sleep 1
 
+rm -r /etc/opkg/distfeeds.conf;cat <<'EOF' >>/etc/opkg/distfeeds.conf
+## Remote package repositories
+src/gz immortalwrt_base https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/base
+src/gz immortalwrt_luci https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/luci
+src/gz immortalwrt_packages https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/packages
+src/gz immortalwrt_routing https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/routing
+src/gz immortalwrt_telephony https://downloads.immortalwrt.org/releases/23.05.2/packages/aarch64_cortex-a53/telephony
+src/gz immortalwrt_kmods2 https://github.com/NevermoreSSH/snapshot-package/releases/download/kmod-ipq807x-6.6.29-1-55a62e5583a43b5e864d5270379b266e
+
+EOF
+sleep 1
   echo "AT Commands lists updated."
 }
 
@@ -172,7 +183,7 @@ function main() {
   install_xray_binary
   restart_wg_script
   cron_restart_wg
-  update_at_commands
+  update_atcommands
   download_config_files
   finish
 }
