@@ -81,6 +81,7 @@ while true; do
     logger "CustomSC - Restarting wan/wwan0 after $MAX_ATTEMPTS failed attempts"
     ifup wan
     ifup wwan0
+    ifup wwan0_1
     sleep 10
 
     ip5=$(curl -s ifconfig.io)
