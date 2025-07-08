@@ -57,8 +57,8 @@ function setup_crontab() {
   if ! grep -q "drop_caches" /etc/crontabs/root; then
     echo "# Release RAM Every 6 hours" >> /etc/crontabs/root
     echo "0 */6 * * * sync && echo 3 > /proc/sys/vm/drop_caches" >> /etc/crontabs/root
-	echo "# Reboot Router Every Week 5AM Sunday" >> /etc/crontabs/root
-    echo "0 5 * * 0 reboot" >> /etc/crontabs/root
+	#echo "# Reboot Router Every Week 5AM Sunday" >> /etc/crontabs/root
+    #echo "0 5 * * 0 reboot" >> /etc/crontabs/root
 	echo "# Adblock Reload Every 1Hour" >> /etc/crontabs/root
     echo "0 * * * * /etc/init.d/adblock reload" >> /etc/crontabs/root
   else
