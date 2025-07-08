@@ -26,6 +26,9 @@ function addcustom_feed() {
 
 function install_packages() {
   echo "Updating opkg and installing packages"
+  curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/luci-app-ipt-ttl_1.0.7-r1_all.ipk
+  curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/luci-app-modeminfo-mm_1.1.1-r1_all.ipk
+  curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/luci-app-tailscale_1.2.6_all.ipk
   opkg update
   opkg install luci-app-modeminfo-mm luci-app-sqm luci-app-tailscale luci-app-passwall2 luci-theme-alpha luci-app-alpha-config luci-app-ipt-ttl
 }
