@@ -27,7 +27,7 @@ function addcustom_feed() {
 function install_packages() {
   echo "Updating opkg and installing packages"
   opkg update
-  opkg install luci-app-modeminfo-mm luci-app-sqm luci-app-tailscale luci-theme-alpha luci-app-alpha-config
+  opkg install luci-app-modeminfo-mm luci-app-sqm luci-app-tailscale luci-theme-alpha luci-app-alpha-config luci-app-ipt-ttl
 }
 
 function setup_ram_release() {
@@ -45,6 +45,16 @@ function configure_cpufreq() {
   uci set cpufreq.cpufreq.governor0='schedutil'
   uci set cpufreq.global.set='1'
   uci commit cpufreq
+  # testing preset tailscale ipt
+uci set tailscale.settings.fw_mode='iptables'
+uci set tailscale.settings.log_stdout='1'
+uci set tailscale.settings.log_stderr='1'
+uci set tailscale.settings.accept_routes='1'
+uci set tailscale.settings.accept_dns='1'
+uci set tailscale.settings.advertise_exit_node='1'
+uci add_list tailscale.settings.advertise_routes='192.168.1.0/24'
+uci set tailscale.settings.disable_snat_subnet_routes='1'
+uci commit tailscale
 }
 
 function install_xray_binary() {
@@ -169,7 +179,7 @@ EOF
 function download_config_files() {
   echo "Downloading updated config files"
   wget -q -O /etc/config/alpha "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/alpha"
-  wget -q -O /etc/config/tailscale "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/tailscale"
+  #wget -q -O /etc/config/tailscale "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/tailscale"
   wget -q -O /etc/config/passwall2 "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/passwall2"
   wget -q -O /etc/rc.local "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/rc.local"
 }
