@@ -11,7 +11,7 @@ fi
 
 function update_description() {
   echo "Updating New ImmortalWrt version string"
-  sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='ImmortalWrt 23.05.2-Updated v4.0 by NevermoreSSH'/g" /etc/openwrt_release
+  sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='ImmortalWrt 23.05.2-SNAPSHOT v2 by NevermoreSSH'/g" /etc/openwrt_release
 }
 
 function addcustom_feed() {
