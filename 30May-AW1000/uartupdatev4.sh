@@ -27,7 +27,7 @@ function addcustom_feed() {
 function install_packages() {
   echo "Updating opkg and installing packages"
   opkg update
-  opkg install luci-app-modeminfo luci-app-sqm luci-app-tailscale luci-app-passwall2 luci-theme-alpha luci-app-alpha-config
+  opkg install luci-app-modeminfo-mm luci-app-sqm luci-app-tailscale luci-app-passwall2 luci-theme-alpha luci-app-alpha-config
 }
 
 function setup_ram_release() {
