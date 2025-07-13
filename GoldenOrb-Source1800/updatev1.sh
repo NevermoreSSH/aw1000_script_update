@@ -47,6 +47,10 @@ function install_packages() {
   echo "Updating opkg and installing packages"
   curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/atinout_0.9.1_aarch64_cortex-a53.ipk
   curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/luci-app-atinout_0.1.0-r6_all.ipk
+  curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/luci-app-modeminfo_1.0.8-r1_all.ipk
+  curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/luci-app-vnstat2_25.186.44806.9ceef01_all.ipk
+  curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/vnstat2_2.12-r1_aarch64_cortex-a53.ipk
+  curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/vnstati2_2.12-r1_aarch64_cortex-a53.ipk
   opkg update
   opkg install luci-app-modeminfo luci-app-tailscale luci-app-passwall2 luci-theme-alpha luci-app-alpha-config luci-app-adblock luci-app-watchcat luci-app-vnstat
   opkg install *.ipk
