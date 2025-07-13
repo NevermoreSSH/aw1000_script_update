@@ -16,7 +16,9 @@ function update_preset() {
   uci set system.@system[0].timezone='MYT-8'
   uci set system.@system[0].zonename='Asia/Kuala Lumpur'
   uci commit system
-
+  uci set luci.main.lang='en'
+  uci commit luci
+  
 }
 
 function new_repo() {
