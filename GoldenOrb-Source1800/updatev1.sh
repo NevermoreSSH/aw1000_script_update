@@ -51,9 +51,10 @@ function install_packages() {
   curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/luci-app-vnstat2_25.186.44806.9ceef01_all.ipk
   curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/vnstat2_2.12-r1_aarch64_cortex-a53.ipk
   curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/vnstati2_2.12-r1_aarch64_cortex-a53.ipk
+  curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/luci-app-tailscale_1.2.6_all.ipk
   opkg update
   opkg install *.ipk
-  opkg install luci-app-modeminfo luci-app-tailscale luci-app-passwall2 luci-theme-alpha luci-app-alpha-config luci-app-adblock luci-app-watchcat luci-app-vnstat
+  opkg install luci-app-passwall2 luci-theme-alpha luci-app-alpha-config luci-app-adblock luci-app-watchcat
 }
 
 function setup_crontab() {
@@ -181,6 +182,16 @@ sed -i "s/option udp_proxy_drop_ports '80,443'/option udp_proxy_drop_ports 'disa
 cd;rm -r *.ipk
 uci set dhcp.lan.leasetime='168h'
 uci commit dhcp
+# tailscale ipt
+uci set tailscale.settings.fw_mode='iptables'
+uci set tailscale.settings.log_stdout='1'
+uci set tailscale.settings.log_stderr='1'
+uci set tailscale.settings.accept_routes='1'
+uci set tailscale.settings.accept_dns='1'
+uci set tailscale.settings.advertise_exit_node='1'
+uci add_list tailscale.settings.advertise_routes='192.168.1.0/24'
+uci set tailscale.settings.disable_snat_subnet_routes='1'
+uci commit tailscale
 echo "Reboot your device to apply all changes."
 }
 
