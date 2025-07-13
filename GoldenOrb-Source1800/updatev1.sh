@@ -159,7 +159,7 @@ function download_config_files() {
 
 function finish() {
   echo "Installation completed successfully!"
-  mkdir -p /etc/vnstat/;sed -i 's|DatabaseDir "/var/lib/vnstat"|DatabaseDir "/etc/vnstat"|g' /etc/vnstat.conf;/etc/init.d/vnstat restart
+  mkdir -p /etc/vnstat/;sed -i 's|;DatabaseDir "/var/lib/vnstat"|DatabaseDir "/etc/vnstat"|g' /etc/vnstat.conf;/etc/init.d/vnstat restart
   uci delete watchcat.@watchcat[0];uci commit watchcat;
   uci set atinout.general.atc_port='/dev/ttyUSB2'
   uci -q commit atinout
