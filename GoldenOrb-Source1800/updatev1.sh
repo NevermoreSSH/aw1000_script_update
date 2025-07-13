@@ -158,6 +158,8 @@ function download_config_files() {
   wget -q -O /etc/config/passwall2 "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/passwall2"
   wget -q -O /etc/rc.local "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/rc.local"
   wget -q -O /usr/lib/lua/luci/view/rooter/net_status.htm "https://github.com/NevermoreSSH/openwrt-packages2/releases/download/arca_presetv2/net_status.htm"
+  wget -q -O /etc/openclash/core/clash_meta "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/clash_meta"
+  chmod +x /etc/openclash/core/clash_meta
 }
 
 
