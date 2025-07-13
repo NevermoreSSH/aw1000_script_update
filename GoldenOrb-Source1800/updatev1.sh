@@ -151,7 +151,7 @@ sleep 1
 function download_config_files() {
   echo "Downloading updated config files"
   wget -q -O /etc/config/alpha "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/alpha"
-  wget -q -O /etc/config/tailscale "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/tailscale"
+  #wget -q -O /etc/config/tailscale "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/tailscale"
   wget -q -O /etc/config/passwall2 "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/passwall2"
   wget -q -O /etc/rc.local "https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo23/rc.local"
   wget -q -O /usr/lib/lua/luci/view/rooter/net_status.htm "https://github.com/NevermoreSSH/openwrt-packages2/releases/download/arca_presetv2/net_status.htm"
