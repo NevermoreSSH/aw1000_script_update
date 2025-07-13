@@ -54,6 +54,7 @@ function install_packages() {
   curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/vnstat2_2.12-r1_aarch64_cortex-a53.ipk
   curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/vnstati2_2.12-r1_aarch64_cortex-a53.ipk
   curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/luci-app-tailscale_1.2.6_all.ipk
+  curl -LO https://github.com/NevermoreSSH/aw1000_script_update/releases/download/golden_orb_source18/luci-app-openclash_0.46.120_all.ipk
   opkg update
   opkg install *.ipk
   opkg install luci-app-passwall2 luci-theme-alpha luci-app-alpha-config luci-app-adblock luci-app-watchcat
