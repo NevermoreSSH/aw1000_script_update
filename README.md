@@ -2,7 +2,7 @@
 
 ---
 
-## 🔷 OpenWrt 24.10.2
+## 🔷 OpenWrt 24.10.2 (latest)
 📅 **Released:** 15 July 2025  
 📝 *Stable version from OpenWrt.*
 
