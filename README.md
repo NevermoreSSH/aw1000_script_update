@@ -1,4 +1,4 @@
-# Firmware List for Arcadyan AW1000
+# 🚀 Firmware List for Arcadyan AW1000
 - Login Router : 192.168.1.1
 - Wifi name: OpenWrt / ImmortalWrt
 - Password : (none)
