@@ -26,6 +26,7 @@
 ## 🔸 ImmortalWrt 23.05.2
   📅 **Released:** 30 June 2024  *(old version)*
 - 📦 **ModemManager Lite** *(47MB – suitable for non-UART storage)*: [Download](https://github.com/NevermoreSSH/openwrt-packages2/releases/download/snapshot/30May-immortalwrt-qualcommax-ipq807x-arcadyan_aw1000-squashfs-sysupgrade.bin)
+- 🔄 Update scripts [Here](https://github.com/NevermoreSSH/aw1000_script_update/releases/tag/aw1000_immo23)
 
 ---
 ### ⚠️ Notes:
