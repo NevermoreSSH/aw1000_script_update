@@ -1,5 +1,7 @@
 # Firmware List for Arcadyan AW1000
-
+- Login Router : 192.168.1.1
+- Wifi name: OpenWrt / ImmortalWrt
+- Password : (none)
 ---
 
 ## 🔷 OpenWrt 24.10.2 (latest)
@@ -27,7 +29,8 @@
 
 ---
 ### ⚠️ Notes:
-- Plug-and-play and basic plan supported.
-- All firmware has been tested.
-- Flash at your own risk. We are not responsible for any damage.
-- more info can check at release or [click here](https://github.com/NevermoreSSH/aw1000_script_update/releases)
+- 📦 Recommended for module **R13**
+- ✅ Plug-and-play and basic plan supported.
+- 🧪 All firmware has been tested.
+- ⚠️ Flash at your own risk. We are not responsible for any damage.
+- ℹ️ For more information, check the [releases section](https://github.com/NevermoreSSH/aw1000_script_update/releases)
