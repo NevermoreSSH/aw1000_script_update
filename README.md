@@ -26,3 +26,9 @@
 - **Old Version**  
   📅 **Released:** 30 June 2024  
 - 📦 **ModemManager Lite** *(47MB – suitable for non-UART storage)*: [Download](https://github.com/NevermoreSSH/openwrt-packages2/releases/download/snapshot/30May-immortalwrt-qualcommax-ipq807x-arcadyan_aw1000-squashfs-sysupgrade.bin)
+
+
+### ⚠️ Notes:
+- Plug-and-play and basic plan supported.
+- All firmware has been tested.
+- Flash at your own risk. We are not responsible for any damage.
