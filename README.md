@@ -5,7 +5,7 @@
 ---
 
 ## 🔷 OpenWrt 24.10.2 (latest)
-📅 **Released:** 15 July 2025  
+📅 **Released:** 17 July 2025  
 📝 *Stable version from OpenWrt.*
 
 - 📦 **Qmodem** *(74MB)*: [Download](https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_owrt24/17july25-qmodem-owrt24-arcadyan_aw1000-squashfs-sysupgrade.bin)  
