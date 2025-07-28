@@ -21,6 +21,7 @@
 - 📦 **Qmodem Lite** *(48MB – suitable for non-UART storage)*: [Download](https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo24/30June25_qmodemlite_immo24_arcadyan_aw1000_squashfs_sysupgrade.bin)  
 - 📦 **Qmodem** *(84MB)*: [Download](https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo24/30June25_qmodemNFT_immo24_arcadyan_aw1000_squashfs_sysupgrade.bin)  
 - 📦 **ModemManager** *(83MB)*: [Download](https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_immo24/30June25-mmNFT-immo24-arcadyan_aw1000-squashfs-sysupgrade.bin)
+- 📦 **Others**: [Here](https://github.com/NevermoreSSH/aw1000_script_update/releases/tag/aw1000_immo24)
 
 ---
 
