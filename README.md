@@ -1,3 +1,10 @@
+<img width="577" height="640" alt="image" src="https://github.com/user-attachments/assets/83793ac7-667c-476d-a04a-ced891b34a57" />
+
+# ⚠️ Please check your storage device before flash:
+- Below <50MB : Lite Version Only
+- Above >150MB : All Version
+
+
 # 🚀 Firmware List for Arcadyan AW1000
 - Login Router : 192.168.1.1
 - Wifi name: OpenWrt / ImmortalWrt
