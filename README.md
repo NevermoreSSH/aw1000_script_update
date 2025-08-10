@@ -15,8 +15,8 @@
 📅 **Released:** 27 July 2025  
 📝 *Stable version from OpenWrt.*
 
-- 📦 **Qmodem Lite** *(44MB)*: [Download](https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_owrt24/27july25_qmodemlite_owrt24_arcadyan_aw1000_squashfs_sysupgrade.bin)  
-- 📦 **ModemManager Lite** *(48MB)*: [Download](https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_owrt24/27july25-mmlite-owrt24-arcadyan_aw1000-squashfs-sysupgrade.bin)
+- 📦 **Qmodem Lite** *(44MB – suitable for non-UART storage)*: [Download](https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_owrt24/27july25_qmodemlite_owrt24_arcadyan_aw1000_squashfs_sysupgrade.bin)  
+- 📦 **ModemManager Lite** *(48MB – suitable for non-UART storage)*: [Download](https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_owrt24/27july25-mmlite-owrt24-arcadyan_aw1000-squashfs-sysupgrade.bin)
 - 📦 **Qmodem** *(74MB)*: [Download](https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_owrt24/27july25-qmodem-owrt24-arcadyan_aw1000-squashfs-sysupgrade.bin)  
 - 📦 **ModemManager** *(77MB)*: [Download](https://github.com/NevermoreSSH/aw1000_script_update/releases/download/aw1000_owrt24/27july25-mm-owrt24-arcadyan_aw1000-squashfs-sysupgrade.bin)
 - 📦 **Others / More info**: [Here](https://github.com/NevermoreSSH/aw1000_script_update/releases/tag/aw1000_owrt24)
